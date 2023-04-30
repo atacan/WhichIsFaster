@@ -1,4 +1,5 @@
 import XCTest
+
 @testable import WhichOneIsFaster
 
 final class WhichOneIsFasterTests: XCTestCase {
