@@ -10,10 +10,12 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(name: "WhichOneIsFaster", targets: ["WhichOneIsFaster"]),
         .executable(name: "SwitchVsDictionary", targets: ["SwitchVsDictionary"]),
+        .executable(name: "EnumVsOptionSet", targets: ["EnumVsOptionSet"]),
         .executable(name: "JsonVsProtobuf", targets: ["JsonVsProtobuf"]),
         .executable(name: "MarkdownParsers", targets: ["MarkdownParsers"]),
         .executable(name: "DownAlone", targets: ["DownAlone"]),
-        .executable(name: "TryCMark", targets: ["TryCMark"])
+        .executable(name: "TryCMark", targets: ["TryCMark"]),
+        .executable(name: "SwitchVsContains", targets: ["SwitchVsContains"]),
 
     ],
     dependencies: [
@@ -21,6 +23,11 @@ let package = Package(
         .package(url: "https://github.com/google/swift-benchmark", branch: "main"),
         .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
         .package(url: "https://github.com/orlandos-nl/IkigaJSON.git", from: "2.0.0"),
+        .package(url: "https://github.com/CoreOffice/XMLCoder.git", from: "0.15.0"),
+        .package(url: "https://github.com/jpsim/Yams.git", from: "5.0.5"),
+        .package(url: "https://github.com/mongodb/mongo-swift-driver", .upToNextMajor(from: "1.3.1")),
+        .package(url: "https://github.com/lynixliu/SwiftAvroCore", from: "0.3.0"),
+        .package(url: "https://github.com/valpackett/SwiftCBOR", branch: "master"),
 
         // Markdown
         .package(url: "https://github.com/loopwerk/Parsley", from: "0.5.0"),
@@ -30,6 +37,8 @@ let package = Package(
         .package(url: "https://github.com/objecthub/swift-markdownkit", branch: "master"),
         // .package(url: "https://github.com/KristopherGBaker/Maaku.git", from: "0.6.0"),
         // .package(url: "https://github.com/apple/swift-cmark", branch: "gfm"),
+
+        .package(url: "https://github.com/pointfreeco/swift-prelude.git", branch: "main"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -43,11 +52,20 @@ let package = Package(
             dependencies: [.product(name: "Benchmark", package: "swift-benchmark")]
         ),
         .executableTarget(
+            name: "EnumVsOptionSet",
+            dependencies: [.product(name: "Benchmark", package: "swift-benchmark")]
+        ),
+        .executableTarget(
             name: "JsonVsProtobuf",
             dependencies: [
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
                 .product(name: "Benchmark", package: "swift-benchmark"),
                 .product(name: "IkigaJSON", package: "IkigaJSON"),
+                .product(name: "XMLCoder", package: "XMLCoder"),
+                .product(name: "Yams", package: "Yams"),
+                .product(name: "MongoSwift", package: "mongo-swift-driver"),
+                .product(name: "SwiftAvroCore", package: "SwiftAvroCore"),
+                .product(name: "SwiftCBOR", package: "SwiftCBOR"),
             ],
             resources: [.copy("Resources")]
         ),
@@ -72,6 +90,13 @@ let package = Package(
                 .product(name: "Ink", package: "ink"),
             ]
         ),
+        .executableTarget(
+            name: "SwitchVsContains",
+            dependencies: [
+                .product(name: "Benchmark", package: "swift-benchmark"),
+                .product(name: "Prelude", package: "swift-prelude"),
+            ]
+        ),
 
         .systemLibrary(
             name: "Ccmark",
@@ -82,7 +107,7 @@ let package = Package(
         ),
 
         .executableTarget(name: "TryCMark", dependencies: ["Ccmark",
-                                                           .product(name: "Benchmark", package: "swift-benchmark"),]),
+                                                           .product(name: "Benchmark", package: "swift-benchmark")]),
 
         .testTarget(
             name: "WhichOneIsFasterTests",

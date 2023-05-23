@@ -36,7 +36,21 @@ benchmark("Down") {
     let html = try down.toHTML()
 }
 
-print("Down\n---", try! Down(markdownString: markdownContent).toHTML(DownOptions.unsafe), "\n")
-print("Ink\n---", inkParser.html(from: markdownContent), "\n")
+//print("Down\n---", try! Down(markdownString: markdownContent).toHTML(DownOptions.unsafe), "\n")
+//print("Ink\n---", inkParser.html(from: markdownContent), "\n")
+
+let blogSwiftTooltip = """
+## Chapter 2
+Bla bla
+```swift
+let maximumNumberOfLoginAttempts = 10 {!<h1>immutable</h1> <br>
+    amazing new things will happen
+    or constant variable!}
+var currentLoginAttempt = 0 {!<h1>mutable</h1> <br>
+    can be changed!}
+```
+"""
+
+print("Down---\n", try! Down(markdownString: blogSwiftTooltip).toHTML(DownOptions.unsafe), "\n")
 
 Benchmark.main()
