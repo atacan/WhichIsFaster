@@ -9,14 +9,6 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(name: "WhichOneIsFaster", targets: ["WhichOneIsFaster"]),
-        .executable(name: "SwitchVsDictionary", targets: ["SwitchVsDictionary"]),
-        .executable(name: "EnumVsOptionSet", targets: ["EnumVsOptionSet"]),
-        .executable(name: "JsonVsProtobuf", targets: ["JsonVsProtobuf"]),
-        .executable(name: "MarkdownParsers", targets: ["MarkdownParsers"]),
-        .executable(name: "DownAlone", targets: ["DownAlone"]),
-        .executable(name: "TryCMark", targets: ["TryCMark"]),
-        .executable(name: "SwitchVsContains", targets: ["SwitchVsContains"]),
-
     ],
     dependencies: [
         // Codablity
