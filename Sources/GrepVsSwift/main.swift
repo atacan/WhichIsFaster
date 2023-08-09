@@ -102,7 +102,7 @@ func runCLI(command: String) throws -> String {
 @discardableResult
 func grep() throws -> Bool {
     //    let command = "grep --recursive jury " +
-    //    "/Users/atacan/Documents/myway/repositories/WhichIsFaster/Sources/GrepVsSwift/Resources"
+
     // let command = "grep --recursive jury " + Bundle.module.path(forResource: "some_file", ofType: "txt", inDirectory:
     // "Resources")!
     let command =
@@ -153,3 +153,25 @@ benchmark("grep") {
 Benchmark.main()
 
 // try grep()
+
+func getModificationTime(for url: URL) throws -> Date {
+    let attributes = try FileManager.default.attributesOfItem(atPath: url.path)
+    return attributes[.modificationDate] as! Date
+}
+
+let url = Bundle.module.url(forResource: "some_file", withExtension: "txt", subdirectory: "Resources")!
+let modificationTime = try getModificationTime(for: url)
+print("The file was last modified on \(modificationTime)")
+
+func getLastCommitAuthor(for fileURL: URL) throws -> String? {
+    let command = "cd \(fileURL.deletingLastPathComponent().path) && git log -1 --pretty=format:%an -- \(fileURL.lastPathComponent)"
+    let output = try runCLI(command: command)
+    return output.trimmingCharacters(in: .whitespacesAndNewlines)
+}
+
+
+if let author = try getLastCommitAuthor(for: URL(string: "/Users/atacan/Documents/.../WhichIsFaster/Sources/GrepVsSwift/Resources")!) {
+    print("The last commit on this file was made by \(author)")
+} else {
+    print("This file has not been committed yet")
+}
