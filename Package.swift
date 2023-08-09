@@ -95,6 +95,12 @@ let package = Package(
                 .product(name: "Benchmark", package: "swift-benchmark"),
             ]
         ),
+        .executableTarget(
+            name: "StringIsEmpty",
+            dependencies: [
+                .product(name: "Benchmark", package: "swift-benchmark"),
+            ]
+        ),
 
         .systemLibrary(
             name: "Ccmark",
