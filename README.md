@@ -47,15 +47,23 @@ https://github.com/atacan/WhichIsFaster/tree/main/Sources/SwitchVsDictionary
 ```haskell
 name      time        std        iterations
 -------------------------------------------
-cmark gfm 6459.000 ns ±  10.63 %     211010
+cmark gfm    6459.000 ns ±  10.63 %     211010
+Ink         25208.000 ns ±   3.98 %      53692
+Down         5000.000 ns ±   6.15 %     278264
+Parsley     17357.000 ns
+MarkdownKit 54346.000 ns
+```
 
-name time         std        iterations
----------------------------------------
-Ink  25208.000 ns ±   3.98 %      53692
-Down  5000.000 ns ±   6.15 %     278264
+## String Concatenation
 
-Parsley      17357 ns
-MarkdownKit  54346 ns
+```haskell
+name                                  time        std        iterations
+-----------------------------------------------------------------------
+Plus operator in a function             41.000 ns ± 129.94 %    1000000
+Plus operator called inside benchmark    0.000 ns ±    inf %    1000000
+Append in a function                     0.000 ns ±    inf %    1000000
+Append called inside benchmark        2875.000 ns ±  18.46 %     457165
+Interpolation                         5250.000 ns ±  13.83 %     264250
 ```
 
 ## Usage
