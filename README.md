@@ -3,15 +3,14 @@
 ## Switch vs. Dictionary to map `enum` cases to other values
 Discover the best approach for mapping enum cases to other values in your Swift projects. This example compares the performance of using switch statements versus dictionary lookups, helping you make an informed decision for your specific use case.
 
-### Overview
-
 When you need to map each enum case to a particular value, such as a SwiftUI.Color, you may wonder whether it's more efficient to use a dictionary of [MyEnum: Color] or to rely on a switch statement in a function. This repository provides an example to showcase the performance differences between these two approaches.
 
-### Example
-
-The example project is available at the following link:
-
-https://github.com/atacan/WhichIsFaster/tree/main/Sources/SwitchVsDictionary
+```haskell
+name              time        std        iterations
+---------------------------------------------------
+Switch on label    167.000 ns ± 101.42 %    1000000
+Dictionary access 2208.000 ns ±  22.50 %     621557
+```
 
 ## Encoding Decoding
 
