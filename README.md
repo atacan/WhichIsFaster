@@ -64,6 +64,17 @@ Append called inside benchmark        2875.000 ns ±  18.46 %     457165
 Interpolation                         5250.000 ns ±  13.83 %     264250
 ```
 
+## String `isEmpty` vs. `.count > 0`
+
+```haskell
+name                 time        std        iterations
+------------------------------------------------------
+.isEmpty               41.000 ns ± 100.51 %    1000000
+.count                 83.000 ns ±  93.23 %    1000000
+.isEmpty Long String    0.000 ns ±    inf %    1000000
+.count Long String   4042.000 ns ±  12.51 %     340676
+```
+
 ## Usage
 
 To test the performance follow these steps:
