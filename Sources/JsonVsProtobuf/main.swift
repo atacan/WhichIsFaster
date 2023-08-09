@@ -76,7 +76,7 @@ let xmlDecoder = XMLDecoder()
 let plistEncoder = PropertyListEncoder()
 let plistDecoder = PropertyListDecoder()
 
-benchmark("JSON Encoding to Data") {
+benchmark("Codable JSON Encoding to Data") {
     _ = try! jsonEncoder.encode(sameGuy)
 }
 
@@ -132,7 +132,7 @@ let avroData = try avro.encode(sameGuy)
 let plistData = try PropertyListEncoder().encode(sameGuy)
 let cborData = try CBOR.encode(sameGuy)
 
-benchmark("JSON Decoding from Data") {
+benchmark("Codable JSON Decoding from Data") {
     _ = try! jsonDecoder.decode(PersonInternal.self, from: sameGuyData)
 }
 
