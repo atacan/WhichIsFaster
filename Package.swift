@@ -5,10 +5,10 @@ import PackageDescription
 
 let package = Package(
     name: "WhichOneIsFaster",
-    platforms: [.macOS(.v11)],
+    platforms: [.macOS(.v12)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(name: "WhichOneIsFaster", targets: ["WhichOneIsFaster"]),
+        .library(name: "WhichOneIsFaster", targets: ["WhichOneIsFaster"])
     ],
     dependencies: [
         // Codability
@@ -70,8 +70,8 @@ let package = Package(
                 //                .product(name: "cmark", package: "cmark-gfm"),
                 .product(name: "Ink", package: "ink"),
                 .product(name: "MarkdownKit", package: "swift-markdownkit"),
-//                .product(name: "Maaku", package: "Maaku"),
-//                .product(name: "cmark-gfm", package: "swift-cmark"),
+                //                .product(name: "Maaku", package: "Maaku"),
+                //                .product(name: "cmark-gfm", package: "swift-cmark"),
             ]
         ),
         .executableTarget(
@@ -92,26 +92,38 @@ let package = Package(
         .executableTarget(
             name: "StringConcatenation",
             dependencies: [
-                .product(name: "Benchmark", package: "swift-benchmark"),
+                .product(name: "Benchmark", package: "swift-benchmark")
             ]
         ),
         .executableTarget(
             name: "StringIsEmpty",
             dependencies: [
-                .product(name: "Benchmark", package: "swift-benchmark"),
+                .product(name: "Benchmark", package: "swift-benchmark")
             ]
+        ),
+        .executableTarget(
+            name: "GrepVsSwift",
+            dependencies: [
+                .product(name: "Benchmark", package: "swift-benchmark")
+            ],
+            resources: [.copy("Resources")]
         ),
 
         .systemLibrary(
             name: "Ccmark",
             pkgConfig: "cmark-gfm",
             providers: [
-                .brew(["cmark-gfm"]),
+                .brew(["cmark-gfm"])
             ]
         ),
 
-        .executableTarget(name: "TryCMark", dependencies: ["Ccmark",
-                                                           .product(name: "Benchmark", package: "swift-benchmark")]),
+        .executableTarget(
+            name: "TryCMark",
+            dependencies: [
+                "Ccmark",
+                .product(name: "Benchmark", package: "swift-benchmark"),
+            ]
+        ),
 
         .testTarget(
             name: "WhichOneIsFasterTests",

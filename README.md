@@ -75,6 +75,19 @@ name                 time        std        iterations
 .count Long String   4042.000 ns ±  12.51 %     340676
 ```
 
+## Read file and Search Inside
+
+```haskell
+name                   time           std         iterations
+------------------------------------------------------------
+Read sync                18416.000 ns ±  29.70 %       65132
+Read async                 125.000 ns ± 836.08 %     1000000
+Read sync Contains       23583.000 ns ± 634.79 %       37635
+Read sync Line Numbers     125.000 ns ± 4738.74 %    1000000
+Read async Contains        125.000 ns ± 4218.80 %    1000000
+grep                   6150771.000 ns ±  26.27 %         208
+```
+
 ## Usage
 
 To test the performance follow these steps:
