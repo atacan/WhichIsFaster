@@ -2,12 +2,12 @@ import Benchmark
 
 benchmark(".isEmpty") {
     let s = "Hello, world!"
-    s.isEmpty
+    let a = s.isEmpty
 }
 
 benchmark(".count") {
     let s = "Hello, world!"
-    s.count
+    let a = s.count > 0
 }
 
 let someText = """
@@ -16,12 +16,12 @@ let someText = """
 
 benchmark(".isEmpty Long String") {
     let s = someText
-    s.isEmpty
+    let a = s.isEmpty
 }
 
 benchmark(".count Long String") {
     let s = someText
-    s.count
+    let a = s.count > 0
 }
 
 Benchmark.main()
