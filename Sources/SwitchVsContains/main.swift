@@ -1,7 +1,3 @@
-//
-// https://github.com/atacan
-// 11.05.23
-
 import Benchmark
 import Prelude
 
@@ -15,7 +11,7 @@ func isOneOf_variadic(_ input: String, _ list: String...) -> Bool {
 }
 
 func isOneOf_arrayArgument(_ input: String, _ list: [String]) -> Bool {
-    return list.contains(input)
+    list.contains(input)
 }
 
 func isOneOf_array(_ input: String, _ list: [String]) -> Bool {
@@ -25,7 +21,14 @@ func isOneOf_array(_ input: String, _ list: [String]) -> Bool {
 
 func isOneOf_switch(_ input: String) -> Bool {
     switch input {
-    case "a", "b", "c", "d", "e", "f", "g", "h":
+    case "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h":
         return true
     default:
         return false
@@ -33,7 +36,7 @@ func isOneOf_switch(_ input: String) -> Bool {
 }
 
 func isOneOf_preludeVariadic<A: Equatable>(_ look: A...) -> (A) -> Bool {
-    return { (a: A) -> Bool in
+    { (a: A) -> Bool in
         for value in look {
             if a == value {
                 return true
@@ -44,8 +47,8 @@ func isOneOf_preludeVariadic<A: Equatable>(_ look: A...) -> (A) -> Bool {
 }
 
 func isOneOf_preludeArray<A: Equatable>(_ look: [A]) -> (A) -> Bool {
-    return { (a: A) -> Bool in
-        return look.contains(a)
+    { (a: A) -> Bool in
+        look.contains(a)
     }
 }
 
@@ -55,7 +58,7 @@ benchmark("Switch") {
 }
 
 benchmark("Array Hard Coded") {
-//    isOneOf_switch("f")
+    //    isOneOf_switch("f")
     isOneOf_switch("k")
     "f" |> isOneOf_switch
 }
@@ -79,6 +82,5 @@ benchmark("Prelude Array") {
     "f" |> isOneOf_preludeArray(["a", "b", "c", "d", "e", "f", "g", "h"])
     "k" |> isOneOf_preludeArray(["a", "b", "c", "d", "e", "f", "g", "h"])
 }
-
 
 Benchmark.main()

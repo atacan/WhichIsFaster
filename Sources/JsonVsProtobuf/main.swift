@@ -1,7 +1,3 @@
-//
-// https://github.com/atacan
-// 30.04.23
-
 import Benchmark
 import Foundation
 import IkigaJSON
@@ -25,7 +21,7 @@ struct PersonInternal: Codable {
 
 extension PersonInternal {
     func toProtoModel() -> Person {
-        return Person.with {
+        Person.with {
             $0.id = id
             $0.name = name
             $0.age = age
@@ -38,19 +34,18 @@ extension PersonInternal: CBOREncodable {
         let cborWrapper: CBOR = [
             "id": CBOR(integerLiteral: Int(id)),
             "name": CBOR.utf8String(name),
-            "age": CBOR(integerLiteral: Int(age))
-            ]
+            "age": CBOR(integerLiteral: Int(age)),
+        ]
         return cborWrapper.encode()
     }
 
     func toCBOR(options: SwiftCBOR.CBOROptions) -> SwiftCBOR.CBOR {
-        return CBOR(integerLiteral: Int(id))
+        CBOR(integerLiteral: Int(id))
     }
-
 }
 
-//let schema = """
-//{
+// let schema = """
+// {
 //  "type": "record",
 //  "name": "PersonInternal",
 //  "fields": [
@@ -58,8 +53,8 @@ extension PersonInternal: CBOREncodable {
 //    {"name": "name", "type": "string"},
 //    {"name": "age", "type": "int"}
 //  ]
-//}
-//"""
+// }
+// """
 
 let avro = Avro()
 
@@ -117,7 +112,7 @@ benchmark("Manual Encoding") {
     let json: [String: Any] = [
         "id": sameGuy.id,
         "name": sameGuy.name,
-        "age": sameGuy.age
+        "age": sameGuy.age,
     ]
     _ = try! JSONSerialization.data(withJSONObject: json, options: [])
 }
@@ -174,17 +169,17 @@ benchmark("Manual Decoding") {
     _ = PersonInternal(id: json["id"] as! Int32, name: json["name"] as! String, age: json["age"] as! Int32)
 }
 
-//try print(String(data: jsonEncoder.encode(sameGuy), encoding: .utf8)!)
-//try print(String(data: ikigaEncoder.encode(sameGuy), encoding: .utf8)!)
+// try print(String(data: jsonEncoder.encode(sameGuy), encoding: .utf8)!)
+// try print(String(data: ikigaEncoder.encode(sameGuy), encoding: .utf8)!)
 
 Benchmark.main()
 
-//import Yams
+// import Yams
 
 // Encoding
-//let yamlString = try Yams.dump(object: sameGuy)
-//print("YAML String:", yamlString)
+// let yamlString = try Yams.dump(object: sameGuy)
+// print("YAML String:", yamlString)
 //
 //// Decoding
-//let decodedGuyyams = try Yams.load(yaml: yamlString) as! PersonInternal
-//print("Decoded YAML:", decodedGuyyams)
+// let decodedGuyyams = try Yams.load(yaml: yamlString) as! PersonInternal
+// print("Decoded YAML:", decodedGuyyams)

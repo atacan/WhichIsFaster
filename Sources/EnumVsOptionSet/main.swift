@@ -1,7 +1,3 @@
-//
-// https://github.com/atacan
-// 03.05.23
-
 import Benchmark
 import Foundation
 
@@ -65,9 +61,8 @@ struct ColorLabelSet: OptionSet {
     static let base = ColorLabelSet(rawValue: 1 << 25)
 
     static func randomElement() -> ColorLabelSet {
-        return ColorLabelSet(rawValue: Int.random(in: 0..<ColorLabel.allCases.count))
+        ColorLabelSet(rawValue: Int.random(in: 0 ..< ColorLabel.allCases.count))
     }
-
 }
 
 var a = 0
@@ -213,7 +208,6 @@ benchmark("OptionSet") {
     if colorLabelSet.contains(.base) {
         a += 1
     }
-
 }
 
 Benchmark.main()

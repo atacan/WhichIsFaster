@@ -1,7 +1,3 @@
-//
-// https://github.com/atacan
-// 29.04.23
-
 import Benchmark
 import SwiftUI
 
@@ -137,8 +133,8 @@ benchmark("Dictionary access") {
     ]
 
     func latte(_ label: ColorLabel) -> Color
-    { /*{!we are going to loop through all the cases and ask for the SwiftUI.Color corresponding to that label!}*/
-        return latteColor[label]!
+    { /* {!we are going to loop through all the cases and ask for the SwiftUI.Color corresponding to that label!} */
+        latteColor[label]!
     }
 
     //    for label in ColorLabel.allCases {
