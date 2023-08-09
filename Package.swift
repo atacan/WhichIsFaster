@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "WhichOneIsFaster", targets: ["WhichOneIsFaster"]),
     ],
     dependencies: [
-        // Codablity
+        // Codability
         .package(url: "https://github.com/google/swift-benchmark", branch: "main"),
         .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
         .package(url: "https://github.com/orlandos-nl/IkigaJSON.git", from: "2.0.0"),
@@ -87,6 +87,12 @@ let package = Package(
             dependencies: [
                 .product(name: "Benchmark", package: "swift-benchmark"),
                 .product(name: "Prelude", package: "swift-prelude"),
+            ]
+        ),
+        .executableTarget(
+            name: "StringConcatenation",
+            dependencies: [
+                .product(name: "Benchmark", package: "swift-benchmark"),
             ]
         ),
 
