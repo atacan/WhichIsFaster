@@ -150,7 +150,7 @@ benchmark("grep") {
 //    Bundle.module.path(forResource: "some_file", ofType: "txt", inDirectory: "Resources")!
 // )
 
-Benchmark.main()
+//Benchmark.main()
 
 // try grep()
 
@@ -161,7 +161,7 @@ func getModificationTime(for url: URL) throws -> Date {
 
 let url = Bundle.module.url(forResource: "some_file", withExtension: "txt", subdirectory: "Resources")!
 let modificationTime = try getModificationTime(for: url)
-print("The file was last modified on \(modificationTime)")
+//print("The file was last modified on \(modificationTime)")
 
 func getLastCommitAuthor(for fileURL: URL) throws -> String? {
     let command = "cd \(fileURL.deletingLastPathComponent().path) && git log -1 --pretty=format:%an -- \(fileURL.lastPathComponent)"
@@ -170,8 +170,87 @@ func getLastCommitAuthor(for fileURL: URL) throws -> String? {
 }
 
 
-if let author = try getLastCommitAuthor(for: URL(string: "/Users/atacan/Documents/.../WhichIsFaster/Sources/GrepVsSwift/Resources")!) {
-    print("The last commit on this file was made by \(author)")
-} else {
-    print("This file has not been committed yet")
+//if let author = try getLastCommitAuthor(for: URL(string: "/Users/atacan/Documents/.../WhichIsFaster/Sources/GrepVsSwift/Resources")!) {
+//    print("The last commit on this file was made by \(author)")
+//} else {
+//    print("This file has not been committed yet")
+//}
+
+
+func walkDirectory(at url: URL, options: FileManager.DirectoryEnumerationOptions ) -> AsyncStream<URL> {
+    AsyncStream { continuation in
+        Task {
+            let enumerator = FileManager.default.enumerator(at: url, includingPropertiesForKeys: nil, options: options)
+                
+            while let fileURL = enumerator?.nextObject() as? URL {
+                if fileURL.hasDirectoryPath {
+                    for await item in walkDirectory(at: fileURL, options: options) {
+                        continuation.yield(item)
+                    }
+                } else {
+                    continuation.yield( fileURL )
+                }
+            }
+            continuation.finish()
+        }
+    }
 }
+
+// .skipsPackageDescendants ignores swift playgounrds
+// .skipsHiddenFiles, ignoes hidden folders too
+func recursiveScan(url: URL) -> [URL] {
+    var files = [URL]()
+    if let enumerator = FileManager.default.enumerator(at: url, includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles, .skipsSubdirectoryDescendants]) {
+        for case let fileURL as URL in enumerator {
+            do {
+                let fileAttributes = try fileURL.resourceValues(forKeys:[.isRegularFileKey])
+                if fileAttributes.isRegularFile! {
+                    files.append(fileURL)
+                }
+            } catch { print(error, fileURL) }
+        }
+    }
+    return files
+}
+
+func recursiveScanStream(url: URL) -> AsyncStream<URL> {
+    AsyncStream { continuation in
+        
+        if let enumerator = FileManager.default.enumerator(at: url, includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants]) {
+            for case let fileURL as URL in enumerator {
+                do {
+                    let fileAttributes = try fileURL.resourceValues(forKeys:[.isRegularFileKey])
+                    if fileAttributes.isRegularFile! {
+                        continuation.yield(fileURL)
+                    }
+                } catch { print(error, fileURL) }
+            }
+            continuation.finish()
+        } else {
+            continuation.finish()
+        }
+    }
+}
+
+let urlNormalDir = URL(fileURLWithPath: "/Users/atacan/Downloads/search here")
+
+let filesRecursive = recursiveScan(url: urlNormalDir)
+dump(filesRecursive)
+
+//let walkStrem = walkDirectory(at: urlNormalDir, options: [.skipsHiddenFiles, .skipsPackageDescendants])
+let walkStrem = recursiveScanStream(url: urlNormalDir)
+
+//for await f in walkStrem {
+//    dump(f)
+//}
+
+// async alternative to String contensOf
+let urlForContent = URL(fileURLWithPath: "/Users/atacan/Downloads/search here/.findme/didyou.sh")
+//print(try String(contentsOf: urlForContent))
+
+var content = ""
+for try await line in urlForContent.lines {
+    // is never empty just ignores the lines
+    line.isEmpty ? content.append("\n") : content.append(line)
+}
+//print(content)
