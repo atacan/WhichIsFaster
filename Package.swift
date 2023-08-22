@@ -124,6 +124,12 @@ let package = Package(
                 .product(name: "Benchmark", package: "swift-benchmark"),
             ]
         ),
+        .executableTarget(
+            name: "VaporResponse",
+            dependencies: [
+                .product(name: "Benchmark", package: "swift-benchmark")
+            ]
+        ),
 
         .testTarget(
             name: "WhichOneIsFasterTests",
