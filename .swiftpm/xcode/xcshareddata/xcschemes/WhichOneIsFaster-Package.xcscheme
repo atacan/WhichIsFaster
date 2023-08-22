@@ -230,6 +230,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "VaporResponse"
+               BuildableName = "VaporResponse"
+               BlueprintName = "VaporResponse"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -264,9 +278,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "GrepVsSwift"
-            BuildableName = "GrepVsSwift"
-            BlueprintName = "GrepVsSwift"
+            BlueprintIdentifier = "VaporResponse"
+            BuildableName = "VaporResponse"
+            BlueprintName = "VaporResponse"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -290,9 +304,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "GrepVsSwift"
-            BuildableName = "GrepVsSwift"
-            BlueprintName = "GrepVsSwift"
+            BlueprintIdentifier = "VaporResponse"
+            BuildableName = "VaporResponse"
+            BlueprintName = "VaporResponse"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
