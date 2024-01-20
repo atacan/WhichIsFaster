@@ -130,6 +130,20 @@ let package = Package(
                 .product(name: "Benchmark", package: "swift-benchmark")
             ]
         ),
+        .executableTarget(
+            name: "StringRemovePunctuation",
+            dependencies: [
+                .product(name: "Benchmark", package: "swift-benchmark")
+            ]
+        ),
+        .executableTarget(
+            name: "TextDiff",
+            dependencies: [
+                .product(name: "Benchmark", package: "swift-benchmark")
+            ]
+        ),
+        .executableTarget(name: "PlayWithIt"),
+        
 
         .testTarget(
             name: "WhichOneIsFasterTests",

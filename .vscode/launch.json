@@ -1,0 +1,340 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug VaporResponse",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/VaporResponse",
+            "preLaunchTask": "swift: Build Debug VaporResponse"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release VaporResponse",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/VaporResponse",
+            "preLaunchTask": "swift: Build Release VaporResponse"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug TryCMark",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/TryCMark",
+            "preLaunchTask": "swift: Build Debug TryCMark"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release TryCMark",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/TryCMark",
+            "preLaunchTask": "swift: Build Release TryCMark"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug TextDiff",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/TextDiff",
+            "preLaunchTask": "swift: Build Debug TextDiff"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release TextDiff",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/TextDiff",
+            "preLaunchTask": "swift: Build Release TextDiff"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug SwitchVsDictionary",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/SwitchVsDictionary",
+            "preLaunchTask": "swift: Build Debug SwitchVsDictionary"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release SwitchVsDictionary",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/SwitchVsDictionary",
+            "preLaunchTask": "swift: Build Release SwitchVsDictionary"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug SwitchVsContains",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/SwitchVsContains",
+            "preLaunchTask": "swift: Build Debug SwitchVsContains"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release SwitchVsContains",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/SwitchVsContains",
+            "preLaunchTask": "swift: Build Release SwitchVsContains"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug StringRemovePunctuation",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/StringRemovePunctuation",
+            "preLaunchTask": "swift: Build Debug StringRemovePunctuation"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release StringRemovePunctuation",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/StringRemovePunctuation",
+            "preLaunchTask": "swift: Build Release StringRemovePunctuation"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug StringIsEmpty",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/StringIsEmpty",
+            "preLaunchTask": "swift: Build Debug StringIsEmpty"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release StringIsEmpty",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/StringIsEmpty",
+            "preLaunchTask": "swift: Build Release StringIsEmpty"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug StringConcatenation",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/StringConcatenation",
+            "preLaunchTask": "swift: Build Debug StringConcatenation"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release StringConcatenation",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/StringConcatenation",
+            "preLaunchTask": "swift: Build Release StringConcatenation"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug MarkdownParsers",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/MarkdownParsers",
+            "preLaunchTask": "swift: Build Debug MarkdownParsers"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release MarkdownParsers",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/MarkdownParsers",
+            "preLaunchTask": "swift: Build Release MarkdownParsers"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug JsonVsProtobuf",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/JsonVsProtobuf",
+            "preLaunchTask": "swift: Build Debug JsonVsProtobuf"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release JsonVsProtobuf",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/JsonVsProtobuf",
+            "preLaunchTask": "swift: Build Release JsonVsProtobuf"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug GrepVsSwift",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/GrepVsSwift",
+            "preLaunchTask": "swift: Build Debug GrepVsSwift"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release GrepVsSwift",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/GrepVsSwift",
+            "preLaunchTask": "swift: Build Release GrepVsSwift"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug EnumVsOptionSet",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/EnumVsOptionSet",
+            "preLaunchTask": "swift: Build Debug EnumVsOptionSet"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release EnumVsOptionSet",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/EnumVsOptionSet",
+            "preLaunchTask": "swift: Build Release EnumVsOptionSet"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug DownAlone",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/DownAlone",
+            "preLaunchTask": "swift: Build Debug DownAlone"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release DownAlone",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/DownAlone",
+            "preLaunchTask": "swift: Build Release DownAlone"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Debug PlayWithIt",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/debug/PlayWithIt",
+            "preLaunchTask": "swift: Build Debug PlayWithIt"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:WhichIsFaster}",
+            "name": "Release PlayWithIt",
+            "program": "${workspaceFolder:WhichIsFaster}/.build/release/PlayWithIt",
+            "preLaunchTask": "swift: Build Release PlayWithIt"
+        }
+    ]
+}
